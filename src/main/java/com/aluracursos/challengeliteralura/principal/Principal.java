@@ -1,9 +1,29 @@
 package com.aluracursos.challengeliteralura.principal;
 
+import com.aluracursos.challengeliteralura.models.Autor;
+import com.aluracursos.challengeliteralura.models.Libro;
+import com.aluracursos.challengeliteralura.repository.AutorRepository;
+import com.aluracursos.challengeliteralura.repository.LibroRepository;
+import com.aluracursos.challengeliteralura.service.ConsumoAPI;
+import com.aluracursos.challengeliteralura.service.ConvierteDatos;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
     private Scanner teclado=new Scanner(System.in);
+    private ConsumoAPI consumoAPI=new ConsumoAPI();
+    private final String URL_BASE="https://gutendex.com/books/?search=";
+    private ConvierteDatos conversor=new ConvierteDatos();
+    private LibroRepository repositoryLibro;
+    private AutorRepository repositoryAutor;
+    private List<Autor> autors;
+    private List<Libro> libros;
+
+    public Principal(LibroRepository repositoryLibro, AutorRepository repositoryAutor){
+        this.repositoryLibro=repositoryLibro;
+        this.repositoryAutor=repositoryAutor;
+    }
 
     public void menu(){
         var opcion = -1;
@@ -19,7 +39,7 @@ public class Principal {
                     ****************************
                     """;
             System.out.println(menu);
-            System.out.println("Eliga una opcion: ");
+            System.out.println("Eliga una opcion del menu: ");
             opcion = teclado.nextInt();
             teclado.nextLine();
 
@@ -47,7 +67,10 @@ public class Principal {
                 default:
                     System.out.println("Opción inválida");
             }
+            
 
         }
     }
+
+
 }
