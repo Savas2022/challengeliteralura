@@ -68,9 +68,11 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "\nNombre: " + nombre +
+        return  "-----AUTOR-----" +
+                "\nNombre: " + nombre +
                 "\nFecha de nacimiento: " + fechaNacimiento +
                 "\nFecha de muerte: " + fechaFallecimiento +
-                "\nLibros: " + this.libros.stream().map(Libro::getTitulo).collect(Collectors.toList());
+                "\nLibros: " + this.libros.stream().map(Libro::getTitulo).collect(Collectors.toList())+
+                "\n------------------\n";
     }
 }

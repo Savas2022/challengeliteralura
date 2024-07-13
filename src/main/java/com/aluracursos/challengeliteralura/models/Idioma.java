@@ -45,4 +45,11 @@ public enum Idioma {
         throw new IllegalArgumentException("Ningun idioma encontrado: " + text);
     }
 
+    public String getIdiomaGutendex() {
+        return idiomaGutendex;
+    }
+
+    public String getIdiomaEspaniol() {
+        return idiomaEspaniol;
+    }
 }
